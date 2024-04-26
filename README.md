@@ -40,7 +40,7 @@ gcc udp_sender.c -o udp_sender
 gcc udp_receiver.c -o udp_receiver
 gcc udp_sender.c -o udp_sender
 
--> Change ports and IPv4 accordingly similar to UDP receiver and sender. 
+-> Change ports and IPv4 address accordingly similar to UDP receiver and sender. 
 
 -> Experiments with the TCP protocol didn't use hole punching unlike experiments with the UDP protocol and packet capturing approaches. 
 
