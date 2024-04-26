@@ -1,1 +1,6 @@
 
+Ahmad: worked mostly on the networking part (e.g., point-to-point and all-to-all communication throughput discrepancy analysis)
+
+Ayush: worked mostly on the NAT traversal techniques' part (e.g., experimenting UDP hole punching)
+
+Shreyas: worked mostly on the Linux kernel stack part (e.g., fine-tuning parameters and distributing interrupts)
