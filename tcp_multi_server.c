@@ -10,14 +10,11 @@
 
 
 
-
-
-
 int port =49000;
 
 int sock_;
 int clnt_socks[400];
-time_t start_;
+double start_,end_;
 
 
 
@@ -27,10 +24,17 @@ size_t total_received = 0;
 
 
 
+void get_walltime_(double* wcTime) {
+  struct timeval tp;
+  gettimeofday(&tp, NULL);
+  *wcTime = (double)(tp.tv_sec + tp.tv_usec/1000000.0);
+}
+
+
 
 
 void signal_handler(int sig) {
-time_t end_ = time(NULL);
+get_walltime_(&end_);
 printf("elapsed time is: %f seconds\n", (end_ - start_));
 printf("Number of bytes is: : %ld bytes\n", total_received);
 exit(0);
@@ -55,9 +59,6 @@ listen(sock_, 100);
                             //connection requests of this server overflow when 400 clients are forked 
                             //at the same time and send connection requests.
 }
-
-
-
 int accept_()
 {
     struct sockaddr_in clnt_addr;
@@ -96,7 +97,7 @@ sa.sa_handler = signal_handler;
 sigaction(SIGINT, &sa, NULL);
 
 set_up();
-start_ = time(NULL);
+get_walltime_(&start_);
 
 int clnt_sock;
 
@@ -117,3 +118,4 @@ if (pid == 0)
 close(sock_);
 return 0;
 }
+                                                                                                                                                       126,1         Bot
